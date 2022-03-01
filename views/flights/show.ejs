@@ -16,22 +16,15 @@
   </section>
 
   <h2>Tickets</h2>
-  <form 
-    action="/flights/<%= flight._id %>/Tickets"
-    id="add-ticket"
-    method="post"
-  >
-    <label for="content-textarea">Review:</label>
-    <textarea name="content" id="content-textarea"></textarea>
-    <label for="rating-select">Rating:</label>
-    <select name="rating" id="rating-select">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5" selected>5</option>
-    </select>
-    <button type="submit">Add Review</button>
+    <form 
+      action="/flights/<%= flight._id %>/tickets"
+      id="add-ticket"
+      method="post"
+    >
+    <label for="seat-input">Seat Number:</label>
+    <input name="seat" id="seat-input" required pattern="[A-F][1-9]\d?">
+    <label for="price-input">Price:</label>
+    <input name="price" id="price">
+    <button type="submit">Add Ticket</button>
   </form>
-
 </main>
