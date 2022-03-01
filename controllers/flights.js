@@ -1,9 +1,10 @@
 import { Flight } from "../models/flight.js"
 
 function index(req, res){
-  Flight.find({}, function(error, flights){
+  Flight.find({}).sort({departs: 'asc'}).exec ((error, flights) => {
     console.log(error)
-    res.render("flights/index", {
+    res.render("flights/", {
+      error,
       flights
     })
   })
@@ -26,9 +27,19 @@ function create(req, res){
   })
 }
 
+function show(req, res){
+  Flight.findById(req.params.id, function (err, flight){
+    res.render('flights/show', {
+      title: "Flight Detail",
+      flight
+    })
+  })
+}
+
 
 export {
   index,
   newFlight as new,
   create,
+  show,
 }
