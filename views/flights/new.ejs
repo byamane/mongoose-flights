@@ -1,3 +1,7 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/movies/index.css">
+<%- include('../partials/nav') %>
+
 <h1>Enter a New Flight</h1>
 <form action="/flights" method="POST">
   <label>Airline:
@@ -10,8 +14,8 @@
   <label>Airport:
     <select name="airport">
       <option value="AUS">AUS</option>
-      <option value="LAX">LAX</option>
-      <option value="DEN">DEN</option>
+      <option value="DFW">DFW</option>
+      <option selected="selected" value="DEN">DEN</option>
       <option value="LAX">LAX</option>
       <option value="SAN">SAN</option>
     </select>
@@ -25,3 +29,5 @@
   <button type="submit">Add Flight</button>
 </form>
 <a href="/">Go Home</a>
+
+<%- include('../partials/footer') %>
