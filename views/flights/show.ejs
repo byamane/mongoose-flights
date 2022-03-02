@@ -15,16 +15,41 @@
     <div><%= flight.departs %></div>
   </section>
 
-  <h2>Tickets</h2>
+  <h2>Add Tickets:</h2>
     <form 
       action="/flights/<%= flight._id %>/tickets"
       id="add-ticket"
       method="post"
     >
-    <label for="seat-input">Seat Number:</label>
+    <label for="seat-input">Seat #:</label>
     <input name="seat" id="seat-input" required pattern="[A-F][1-9]\d?">
     <label for="price-input">Price:</label>
     <input name="price" id="price">
     <button type="submit">Add Ticket</button>
   </form>
+
+  <% if (flight.tickets.length) { %> 
+    <table>
+      <thead>Total Tickets: <%= flight.tickets.length %> </thead>
+      <thead>
+        <tr>
+          <th>Seat #</th>
+          <th>Price</th>
+          <th>Time Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% flight.tickets.forEach(function(ticket) { %> 
+          <tr> 
+            <td><%= ticket.seat %> </td>
+            <td><%= ticket.price %> </td>
+            <td><%= ticket.createdAt.toLocaleString() %> </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+    <% } else { %>
+      <h3>No Tickets Yet</h3>
+    <% } %> 
+
 </main>

@@ -3,7 +3,7 @@ import { Flight } from "../models/flight.js"
 function index(req, res){
   Flight.find({}).sort({departs: 'asc'}).exec ((error, flights) => {
     console.log(error)
-    res.render("flights/", {
+    res.render("flights/index", {
       error,
       flights
     })

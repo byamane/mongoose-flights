@@ -10,7 +10,9 @@ const ticketSchema = new Schema({
   price: {
     type: Number,
     min: 0
-  },
+  }
+}, {
+  timestamps: true
 })
 
 const flightSchema = new Schema({
@@ -35,6 +37,8 @@ const flightSchema = new Schema({
   tickets: {
     type: [ticketSchema]
   }
+}, {
+  timestamps: true
 })
 
 const Flight = mongoose.model("Flight", flightSchema)
