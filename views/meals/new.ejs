@@ -12,11 +12,13 @@
     <button type="submit">Add Meal</button>
   </form>
   
-  <ul>
-      <% meals.forEach(function(meal) { %>
-        <li><%= meal.name %></li>
-      <% }) %>
-  </ul>
+  <div id="meals-list">
+    <ul>
+        <% meals.forEach(function(meal) { %>
+          <li><%= meal.name %></li>
+        <% }) %>
+    </ul>
+  </div>
 </main>
 
 <%- include('../partials/footer') %>
